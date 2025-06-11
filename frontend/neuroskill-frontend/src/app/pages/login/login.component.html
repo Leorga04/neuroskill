@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuroskill login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGVzcGFjaW8lMjBleHRlcmlvcnxlbnwwfHwwfHx8MA%3D%3D'); /* Aquí pones la ruta de la imagen */
+    background-size: cover; /* Esto hace que la imagen cubra toda el área */
+    background-position: center; /* Centra la imagen */
+}
+    </style>
+</head>
+<body>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <div class="container">
+        <h1>Neuroskill</h1>
+        <h2>Iniciar Sesión</h2>
+        <form (ngSubmit)="iniciarSesion()">
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" [(ngModel)]="datos.correo" required />
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" [(ngModel)]="datos.contrasena" required />
+
+            <button type="submit">Entrar</button>
+        </form>
+        <hr>
+        <p class="footer">¿No tienes cuenta? <a routerLink="/registro">Regístrate aquí</a></p>
+    </div>
+</body>
+</html>

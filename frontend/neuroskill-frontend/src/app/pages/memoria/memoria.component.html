@@ -1,0 +1,61 @@
+<div class="container" *ngIf="mostrarSelector">
+  <h1 class="titulo">Selecciona la dificultad</h1>
+  
+  <div class="botones-dificultad">
+    <button class="btn-retro" (click)="establecerDificultad('facil')">Fácil</button>
+    <button class="btn-retro" (click)="establecerDificultad('intermedio')">Intermedio</button>
+    <button class="btn-retro" (click)="establecerDificultad('dificil')">Difícil</button>
+<button class="btn-retro"
+  (click)="toggleRecords()"
+  style="position: absolute; left: 0; top: 0; transform: translateY(50%);">
+  {{ mostrarRecords ? 'Ocultar récords' : 'Ver récords' }}
+</button>
+
+  </div>
+
+  <div class="volver-menu">
+    <button class="btn-retro" (click)="volverAlMenu()">Volver al Menú</button>
+  </div>
+</div>
+
+<div *ngIf="mostrarRecords" class="record-panel" style="margin-top: 2em;">
+  <h3>🏆 Récords - {{ dificultadSeleccionada | titlecase }}</h3>
+
+  <div class="nivel-selector">
+    <button 
+      *ngFor="let nivel of niveles" 
+      (click)="dificultadSeleccionada = nivel"
+      [class.active]="dificultadSeleccionada === nivel"
+    >
+      {{ nivel | titlecase }}
+    </button>
+  </div>
+
+  <ul>
+    <li *ngFor="let record of records[dificultadSeleccionada]">
+      {{ record.nombre_usuario }} - {{ record.tiempo }} seg
+    </li>
+  </ul>
+</div>
+
+
+<div class="container" *ngIf="!mostrarSelector">
+  <h1 class="titulo">Juego de Memoria - {{ dificultad | titlecase }}</h1>
+  <p class="mensaje">{{ mensaje }}</p>
+<p class="contador">⏱ Tiempo: {{ tiempo }} s</p>
+
+  <div class="tablero" [ngClass]="dificultad">
+  <div
+    class="carta"
+    *ngFor="let carta of cartas"
+    [class.descubierta]="carta.descubierta || carta.emparejada"
+    (click)="seleccionarCarta(carta)"
+  >
+    <span *ngIf="carta.descubierta || carta.emparejada">{{ carta.valor }}</span>
+  </div>
+</div>
+
+
+  <button class="btn-retro" (click)="reiniciarJuego()">Reiniciar</button>
+  <button class="btn-retro" (click)="volverAlMenu()">Volver al Menú</button>
+</div>

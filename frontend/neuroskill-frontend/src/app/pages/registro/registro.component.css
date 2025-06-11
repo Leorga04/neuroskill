@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Press Start 2P', monospace;
+    background-image: url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGVzcGFjaW8lMjBleHRlcmlvcnxlbnwwfHwwfHx8MA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    color: #00ffff;
+  }
+
+  .container {
+    width: 440px;
+    padding: 30px;
+    border: 3px solid #00ff00;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 0 10px #00ff00, inset 0 0 10px #00ff00;
+    text-align: center;
+  }
+
+  h2 {
+    color: #00ff00;
+    text-shadow: 0 0 3px #00ff00;
+    margin-bottom: 1em;
+  }
+
+  label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5em;
+    color: #ffffff;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    width: 94%;
+    padding: 0.8em;
+    margin-bottom: 1.5em;
+    border-radius: 5px;
+    border: 1px solid #ff0000;
+    background-color: #111;
+    color: #fff;
+    font-family: 'Press Start 2P', monospace;
+  }
+
+  button {
+    width: 100%;
+    padding: 1em;
+    background-color: black;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', monospace;
+    box-shadow: 0 0 5px #00ff00;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  button:hover {
+    background-color: #111;
+    transform: scale(1.05);
+  }
+
+  .footer {
+    margin-top: 1.5em;
+    color: #ffffff;
+  }
+
+  a {
+    color: #00ffff;
+    text-decoration: none;
+  }

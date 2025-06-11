@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  background-color: #000;
+  font-family: 'Press Start 2P', monospace;
+  color: #00ff00;
+  text-shadow: 0 0 2px #00ff00;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  background-color: #000 !important;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.record-panel {
+  background-color: #000;
+  color: #00ff00;
+  font-family: 'Press Start 2P', monospace;
+  border: 2px solid #00ff00;
+  padding: 1em;
+  margin: 1em auto;
+  max-width: 500px;
+  text-align: left;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.record-panel h3, .record-panel h4 {
+  text-align: center;
+}
+.nivel-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.nivel-selector button {
+  padding: 0.5em 1em;
+  font-size: 0.7em;
+  font-family: 'Press Start 2P', monospace;
+  background-color: black;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  cursor: pointer;
+  box-shadow: 0 0 5px #00ff00;
+  transition: background-color 0.3s;
+}
+
+.nivel-selector button:hover {
+  background-color: #111;
+}
+
+.nivel-selector button.active {
+  background-color: #00ff00;
+  color: black;
+  font-weight: bold;
+}
+
+
+.aim-area {
+  width: 98%;
+  height: 80vh;
+  border: 4px dashed #00ff00;
+  background: #000000;
+  position: relative;
+  box-shadow: 0 0 10px #00ff00, inset 0 0 10px #00ff00;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.target {
+  width: 40px;
+  height: 40px;
+  background-color: #00ff00;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ff00;
+  animation: flicker 0.1s infinite alternate;
+}
+
+@keyframes flicker {
+  from { opacity: 0.85; }
+  to { opacity: 1; }
+}
+
+button {
+  font-family: 'Press Start 2P', monospace;
+  margin: 0.5em;
+  padding: 0.5em 1.5em;
+  font-size: 0.75em;
+  cursor: pointer;
+  border: 2px solid #00ff00;
+  border-radius: 4px;
+  background-color: black;
+  color: #00ff00;
+  text-shadow: 0 0 2px #00ff00;
+  box-shadow: 0 0 5px #00ff00;
+  transition: transform 0.1s, background-color 0.3s;
+}
+
+button:hover {
+  background-color: #111;
+  transform: scale(1.05);
+}
+
+h2 {
+  font-size: 1.5em; /* Aumentado */
+  font-family: 'Press Start 2P', monospace;
+  color: #00ff00;
+  text-shadow: 0 0 4px #00ff00;
+  margin-bottom: 1em;
+}
+
+/* Botones de dificultad más grandes */
+.menu-dificultad {
+  display: flex;
+  font-size: 1.5em;
+  padding: 1px 2px;
+  justify-content: center;
+  gap: 1em; /* espacio entre botones */
+  margin-top: 2em;
+  flex-wrap: wrap;
+}
+
+
+/* Fuente para tiempo y aciertos */
+.status-bar {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+  margin: 1em 0;
+  color: #00ff00;
+  text-shadow: 0 0 2px #00ff00;
+}

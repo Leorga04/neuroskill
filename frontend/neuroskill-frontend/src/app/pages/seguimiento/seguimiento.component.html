@@ -1,0 +1,65 @@
+<div class="contenedor">
+  <!-- Título y botón de volver -->
+  <div style="position: relative; text-align: center;">
+    <button 
+      class="btn-retro" 
+      style="position: absolute; left: 0; top: 0;" 
+      (click)="mostrarRecords = !mostrarRecords">
+      {{ mostrarRecords ? 'Ocultar récords' : 'Ver récords' }}
+    </button>
+    <h1 class="title">Juego de Velocidad</h1>
+  </div>
+
+  <!-- Menú de dificultad -->
+  <div *ngIf="!dificultad" class="menu">
+    <button class="btn-retro" (click)="establecerDificultad('facil')">Fácil</button>
+    <button class="btn-retro" (click)="establecerDificultad('intermedio')">Intermedio</button>
+    <button class="btn-retro" (click)="establecerDificultad('dificil')">Difícil</button>
+  </div>
+  <div>
+       <button class="btn-retro" (click)="volverAlMenu()">Volver al menú</button>
+  </div>
+
+  <!-- Tabla de récords (independiente del juego activo) -->
+  <div *ngIf="mostrarRecords" class="record-panel" style="margin-top: 2em;">
+    <h3 style="color: #00ff00;">🏆 Récords por dificultad</h3>
+    <div style="margin-bottom: 1em;">
+      <button 
+        class="btn-retro-small" 
+        *ngFor="let nivel of niveles"
+        [class.selected]="nivel === dificultadSeleccionada"
+        (click)="dificultadSeleccionada = nivel">
+        {{ nivel | titlecase }}
+      </button>
+    </div>
+    <ul *ngIf="dificultadSeleccionada">
+      <li *ngFor="let record of records[dificultadSeleccionada]">
+        {{ record.nombre_usuario }} - {{ record.puntuacion }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Juego activo -->
+  <div *ngIf="dificultad" class="juego">
+    <div
+      class="bola"
+      [style.left.%]="bolaX"
+      [style.top.%]="bolaY"
+      (mousedown)="mouseDown()"
+      (mouseup)="mouseUp()"
+      (mouseleave)="mouseUp()"
+    ></div>
+
+    <!-- Estos sí se mostrarán correctamente -->
+    <p class="puntos">Puntos: {{ puntos }}</p>
+    <p class="puntos">Tiempo restante: {{ tiempoRestante }}s</p>
+
+    <button
+      class="btn-retro"
+      *ngIf="!juegoActivo && tiempoRestante === 0"
+      (click)="reiniciar()"
+    >
+      Reiniciar
+    </button>
+  </div>
+</div>

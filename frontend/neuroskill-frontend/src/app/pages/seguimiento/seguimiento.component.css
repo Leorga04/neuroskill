@@ -1,0 +1,102 @@
+.contenedor {
+  text-align: center;
+  height: 100vh;
+  background-color: black;
+  color: #00ff00;
+  font-family: "Press Start 2P", cursive;
+  position: relative;
+  overflow: hidden;
+}
+.title {
+  font-family: "Press Start 2P", cursive;
+  padding-top: 30px;
+  text-shadow: 0 0 2px #00ff00, 0 0 2px #00ff00, 0 0 2px #00ff00;
+}
+.selected {
+  background-color: #00ff00 !important;
+  color: #000 !important;
+  transform: scale(1.05);
+}
+.record-panel {
+  background-color: #000;
+  color: #00ff00;
+  font-family: "Press Start 2P", monospace;
+  border: 2px solid #00ff00;
+  padding: 1em;
+  margin: 1em auto;
+  max-width: 500px;
+  text-align: left;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.record-panel h3,
+.record-panel h4 {
+  text-align: center;
+}
+
+.menu,
+.juego {
+  padding-top: 50px;
+}
+
+.bola {
+  width: 50px;
+  height: 50px;
+  background-color: #00ff00;
+  border: 2px solid #00ff00;
+  box-shadow: 0 0 10px #00ff00, inset 0 0 5px #000;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  transition: top 0.1s linear, left 0.1s linear;
+}
+.btn-retro-small {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: "Press Start 2P", monospace;
+  border: 2px solid #00ff00;
+  background: black;
+  color: #00ff00;
+  text-shadow: 0 0 2px #00ff00;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 0 5px #00ff00;
+}
+
+.btn-retro-small:hover,
+.btn-retro-small.selected {
+  background-color: #00ff00;
+  color: black;
+  text-shadow: none;
+}
+
+.btn-retro {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: black;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 4px #00ff00, 0 0 8px #00ff00, inset 0 0 2px #00ff00;
+  font-family: "Press Start 2P", cursive;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-retro:hover {
+  background-color: #00ff00;
+  color: black;
+  box-shadow: 0 0 8px #00ff00;
+}
+
+.puntos {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  user-select: none;
+  -webkit-user-select: none; /* Para compatibilidad con Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none;
+}

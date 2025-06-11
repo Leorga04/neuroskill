@@ -1,0 +1,53 @@
+<div style="text-align: center; margin-top: 1em; position: relative;">
+  <h2>🎯 Juego de Puntería</h2>
+  
+  <button 
+    (click)="volverAlMenu()" 
+    style="position: absolute; right: 0; top: 0; transform: translateY(50%);">
+    Volver al menú principal
+  </button>
+  <button 
+    (click)="mostrarRecords = !mostrarRecords" 
+    style="position: absolute; left: 0; top: 0; transform: translateY(50%);">
+    {{ mostrarRecords ? 'Ocultar récords' : 'Ver récords' }}
+  </button>
+</div>
+
+<div class="menu-dificultad" *ngIf="!juegoActivo">
+  <button (click)="seleccionarDificultad('facil')">Fácil</button>
+  <button (click)="seleccionarDificultad('intermedio')">Intermedio</button>
+  <button (click)="seleccionarDificultad('dificil')">Difícil</button>
+</div>
+<div *ngIf="mostrarRecords" class="record-panel" style="margin-top: 2em;">
+  <h3>🏆 Récords - {{ dificultadSeleccionada | titlecase }}</h3>
+
+  <div class="nivel-selector">
+    <button 
+      *ngFor="let nivel of niveles" 
+      (click)="dificultadSeleccionada = nivel"
+      [class.active]="dificultadSeleccionada === nivel"
+    >
+      {{ nivel | titlecase }}
+    </button>
+  </div>
+
+  <ul>
+    <li *ngFor="let record of records[dificultadSeleccionada]">
+      {{ record.nombre_usuario }} - {{ record.puntuacion }}
+    </li>
+  </ul>
+</div>
+
+
+<div *ngIf="juegoActivo" class="status-bar">
+  <span>⏱ {{ tiempoRestante }}s</span>
+  <span>🎯 {{ aciertos }}</span>
+</div>
+
+<div class="aim-area" *ngIf="juegoActivo" (click)="handleClick($event)">
+  <div 
+    class="target" 
+    *ngIf="targetVisible" 
+    [ngStyle]="{'top.px': targetY, 'left.px': targetX}">
+  </div>
+</div>

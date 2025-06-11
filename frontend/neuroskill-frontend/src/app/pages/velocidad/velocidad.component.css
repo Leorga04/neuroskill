@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.container {
+  background-color: #000000; /* fondo negro puro */
+  color: #00ff00; /* verde neón */
+  font-family: 'Press Start 2P', cursive;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+  text-shadow:
+    0 0 2px #00ff00,
+    0 0 2px #00ff00,
+    0 0 2px #00ff00;
+  letter-spacing: 2px;
+}
+.btn-records {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+  padding: 8px 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  background-color: black;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  cursor: pointer;
+}
+
+.btn-records:hover {
+  background-color: #002200;
+}
+
+/* Cubre toda la pantalla con fondo semi-transparente */
+
+.record-panel {
+  background-color: #000;
+  color: #00ff00;
+  font-family: 'Press Start 2P', monospace;
+  border: 2px solid #00ff00;
+  padding: 1em;
+  margin: 1em auto;
+  max-width: 500px;
+  text-align: left;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.record-panel h3, .record-panel h4 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 400px;
+  font-size: 0.85em;
+  text-align: left;
+}
+
+ul li {
+  padding: 0.4em 0;
+  text-shadow: 0 0 2px #000000;
+}
+ul li:last-child {
+  border-bottom: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 255, 0, 0.1); /* verde neón muy transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+/* Fondo oscuro semi-transparente que cubre toda la pantalla */
+.modal-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;  /* ancho viewport completo */
+  height: 100vh; /* alto viewport completo */
+  background-color: rgba(0, 0, 0, 0.75); /* negro con transparencia */
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente */
+  z-index: 9999;           /* encima de todo */
+}
+
+/* Ventana modal centrada */
+.record-panel {
+  background-color: #000;
+  color: #00ff00;
+  font-family: 'Press Start 2P', monospace;
+  border: 2px solid #00ff00;
+  padding: 2em 2.5em;
+  max-width: 520px;
+  width: 90%;
+  box-shadow: 0 0 15px #00ff00;
+  border-radius: 8px;
+  user-select: none;
+  text-align: center;
+}
+
+.record-panel h3 {
+  margin-bottom: 1.5em;
+  text-shadow: 0 0 6px #00ff00;
+}
+
+.record-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 400px;
+  font-size: 0.85em;
+  text-align: left;
+}
+
+.record-panel ul li {
+  padding: 0.4em 0;
+  border-bottom: 1px solid #00ff00;
+  text-shadow: 0 0 2px #00ff00;
+}
+
+.record-panel ul li:last-child {
+  border-bottom: none;
+}
+
+
+.tabla-retro {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.7em;
+  box-shadow: 0 0 10px #00ff00 inset;
+}
+
+.tabla-retro th,
+.tabla-retro td {
+  border: 1px solid #00ff00;
+  padding: 8px 5px;
+  text-align: center;
+  text-shadow: 0 0 2px #00ff00;
+}
+
+.tabla-retro thead th {
+  background-color: #000;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+
+
+
+
+/* Cambia fondo cuando es momento de click para feedback */
+.container.click {
+  background-color: #003300; /* verde oscuro */
+}
+
+.mensaje {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+/* Texto "Juego Retro" */
+.retro-text {
+  font-size: 12px;
+  margin-top: 20px;
+  color: #00ff00;
+  text-shadow:
+    0 0 2px #00ff00,
+    0 0 2px #00ff00,
+    0 0 2px #00ff00;
+}
+
+/* La bola redonda retro */
+.circulo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #003300;
+  box-shadow:
+    0 0 10px #00ff00,
+    0 0 20px #00ff00,
+    0 0 40px #00ff00,
+    0 0 80px #00ff00;
+  margin-top: 40px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Cuando toca clicar, se ilumina */
+.circulo.activo {
+  background-color: #00ff00;
+  box-shadow:
+    0 0 20px #00ff00,
+    0 0 40px #00ff00,
+    0 0 80px #00ff00,
+    0 0 160px #00ff00;
+}
+.btn-retro {
+    margin-top: 40px;
+    padding: 10px 30px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: #00ff00;
+    background-color: transparent;
+    border: 2px solid #00ff00;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-shadow: none;
+    -webkit-text-stroke: 1px #00ff00;
+    user-select: none;
+  }
+  
+  .btn-retro:hover {
+    background-color: #00ff00;
+    color: #000000;
+    text-shadow: none;
+    -webkit-text-stroke: 0;
+  }
+  

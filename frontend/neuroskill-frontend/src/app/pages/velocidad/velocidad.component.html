@@ -1,0 +1,37 @@
+<div class="container" [class.click]="estado === 'click'" (click)="manejarClick()">
+<button class="btn-retro" (click)="toggleRecords($event)">
+  {{ mostrarRecords ? 'Ocultar récords' : 'Mostrar récords' }}
+</button>
+
+  <div class="header">
+    <h1>Tiempo de Reacción</h1>
+    <p class="mensaje">{{ mensaje }}</p>
+    <p *ngIf="estado !== 'inicio'" class="retro-text">Juego Retro</p>
+  </div>
+
+  <div class="medio">
+    <div class="circulo" [class.activo]="estado === 'click'"></div>
+  </div>
+
+  <div class="footer">
+    <button class="btn-retro" (click)="volverAlMenu($event)">Volver al menú</button>
+  </div>
+
+  <!-- Panel de récords tipo modal -->
+   <div *ngIf="mostrarRecords" class="modal-fondo" (click)="mostrarRecords = false">
+  <div class="record-panel" (click)="$event.stopPropagation()">
+    <h3>🏆 Récords de Velocidad</h3>
+
+    <ul>
+      <li *ngFor="let record of records">
+        {{ record.nombre_usuario }} - {{ record.puntuacion }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+</div>

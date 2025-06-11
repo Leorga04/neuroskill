@@ -1,0 +1,38 @@
+<div class="header">
+ <button class="account-btn" (click)="mostrarCuenta = true">👤 Cuenta</button>
+  <button class="logout-btn" (click)="cerrarSesion()">Cerrar Sesión</button>
+</div>  
+<div *ngIf="mostrarCuenta" class="modal-overlay">
+  <div class="modal-content">
+    <h3>👤 Mi Cuenta</h3>
+    <p><strong>ID:</strong> {{ usuario.id }}</p>
+    <p><strong>Correo:</strong> {{ usuario.correo }}</p>
+    
+    <label for="nombreInput">Nombre de usuario:</label>
+    <input id="nombreInput" [(ngModel)]="usuario.nombre_usuario" type="text" />
+
+    <div class="modal-buttons">
+      <button class="btn-retro" (click)="guardarCambios()">Guardar</button>
+      <button class="btn-retro" (click)="mostrarCuenta = false">Cerrar</button>
+    </div>
+  </div>
+</div>
+<div class="game-container">
+    <div class="game-box">
+      <h2>Memoria</h2>
+      <div class="game-square" (click)="iniciarJuego('memoria')">🧠</div>
+    </div>
+    <div class="game-box">
+      <h2>Aim</h2>
+      <div class="game-square" (click)="iniciarJuego('aim')">🎯</div>
+    </div>
+    <div class="game-box">
+      <h2>Velocidad</h2>
+      <div class="game-square" (click)="iniciarJuego('velocidad')">⚡</div>
+    </div>
+    <div class="game-box">
+      <h2>Seguimiento</h2>
+      <div class="game-square" (click)="iniciarJuego('seguimiento')">👆</div>
+    </div>
+  </div>
+  
