@@ -45,6 +45,16 @@ export class SeguimientoComponent implements OnInit, OnDestroy {
   tiempoInterval: any = null;
   tiempoRestante = 30;
   juegoActivo = false;
+  mouseIsOver = false;
+  restaInterval: any = null;
+
+  mouseEnter() {
+    this.mouseIsOver = true;
+  }
+
+  mouseLeave() {
+    this.mouseIsOver = false;
+  }
 
   ngOnInit() {
     this.obtenerRecords();
@@ -84,7 +94,7 @@ export class SeguimientoComponent implements OnInit, OnDestroy {
     clearInterval(this.tiempoInterval);
 
     this.dificultad = dif;
-    this.velocidad = dif === 'facil' ? 0.5 : dif === 'intermedio' ? 1 : 1.5;
+    this.velocidad = dif === 'facil' ? 0.2 : dif === 'intermedio' ? 0.35 : 0.5;
 
     this.tiempoRestante = 30;
     this.juegoActivo = true;
@@ -126,8 +136,16 @@ export class SeguimientoComponent implements OnInit, OnDestroy {
 
   iniciarContadorPuntos() {
     this.contadorInterval = setInterval(() => {
-      if (this.presionado && this.juegoActivo) this.puntos++;
+      if (this.mouseIsOver && this.juegoActivo) {
+        this.puntos++;
+      }
     }, 100);
+
+    this.restaInterval = setInterval(() => {
+      if (!this.mouseIsOver && this.juegoActivo && this.puntos > 0) {
+        this.puntos--;
+      }
+    }, 300);
   }
 
   iniciarTemporizador() {
@@ -146,7 +164,7 @@ export class SeguimientoComponent implements OnInit, OnDestroy {
     clearInterval(this.tiempoInterval);
     this.presionado = false;
     this.guardarDatos();
-    this.obtenerRecords
+    this.obtenerRecords;
   }
   guardarDatos() {
     const id_usuario = Number(localStorage.getItem('id_usuario'));
@@ -179,14 +197,6 @@ export class SeguimientoComponent implements OnInit, OnDestroy {
     const angulo = Math.atan2(this.dirY, this.dirX) + variacion;
     this.dirX = Math.cos(angulo);
     this.dirY = Math.sin(angulo);
-  }
-
-  mouseDown() {
-    this.presionado = true;
-  }
-
-  mouseUp() {
-    this.presionado = false;
   }
 
   reiniciar() {

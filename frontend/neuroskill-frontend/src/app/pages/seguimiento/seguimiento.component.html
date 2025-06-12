@@ -42,13 +42,13 @@
   <!-- Juego activo -->
   <div *ngIf="dificultad" class="juego">
     <div
-      class="bola"
-      [style.left.%]="bolaX"
-      [style.top.%]="bolaY"
-      (mousedown)="mouseDown()"
-      (mouseup)="mouseUp()"
-      (mouseleave)="mouseUp()"
-    ></div>
+  class="bola"
+  [style.left.%]="bolaX"
+  [style.top.%]="bolaY"
+  (mouseenter)="mouseEnter()"
+  (mouseleave)="mouseLeave()"
+></div>
+
 
     <!-- Estos sí se mostrarán correctamente -->
     <p class="puntos">Puntos: {{ puntos }}</p>
