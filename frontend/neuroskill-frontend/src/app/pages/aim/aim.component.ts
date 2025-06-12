@@ -109,6 +109,9 @@ export class AimComponent implements OnInit, OnDestroy {
     this.timeoutDesaparicion = setTimeout(() => {
       if (this.targetVisible && this.juegoActivo) {
         // <- verifica otra vez por seguridad
+        if (this.aciertos > 0) {
+        this.aciertos--;
+      }
         this.targetVisible = false;
         this.aparecerTarget();
       }
